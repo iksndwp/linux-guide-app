@@ -1,19 +1,10 @@
 import { Redirect, Route } from "react-router-dom";
-import {
-  IonApp,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-  setupIonicReact,
-} from "@ionic/react";
-import { homeOutline, libraryOutline } from "ionicons/icons";
+import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
 import Tab1 from "./pages/Tab1";
 import Library from "./pages/Library";
+import FloatingNavbar from "./components/FloatingNavbar";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
@@ -34,33 +25,21 @@ setupIonicReact();
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/home">
-            <Tab1 />
-          </Route>
+      <IonRouterOutlet>
+        <Route exact path="/home">
+          <Tab1 />
+        </Route>
 
-          <Route exact path="/library">
-            <Library />
-          </Route>
+        <Route exact path="/library">
+          <Library />
+        </Route>
 
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-        </IonRouterOutlet>
+        <Route exact path="/">
+          <Redirect to="/home" />
+        </Route>
+      </IonRouterOutlet>
 
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="home" href="/home">
-            <IonIcon icon={homeOutline} />
-            <IonLabel>Home</IonLabel>
-          </IonTabButton>
-
-          <IonTabButton tab="library" href="/library">
-            <IonIcon icon={libraryOutline} />
-            <IonLabel>Library</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
+      <FloatingNavbar />
     </IonReactRouter>
   </IonApp>
 );
