@@ -1,0 +1,133 @@
+.splash-screen {
+  --background: linear-gradient(180deg, #5b4bdb 0%, #9b84f5 100%);
+  color: #ffffff;
+}
+
+.splash-screen::part(scroll) {
+  position: relative;
+  display: flex;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.splash-screen__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: calc(32px + var(--ion-safe-area-top, 0px)) 24px
+    calc(72px + var(--ion-safe-area-bottom, 0px));
+  text-align: center;
+}
+
+.splash-screen__decor {
+  position: absolute;
+  z-index: 0;
+  width: 260px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.splash-screen__decor--top {
+  top: -92px;
+  right: -86px;
+}
+
+.splash-screen__decor--bottom {
+  bottom: -108px;
+  left: -96px;
+  width: 300px;
+}
+
+.splash-screen__icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 70px rgba(40, 28, 112, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.splash-screen__icon {
+  width: 46px;
+  height: 46px;
+  color: #ffffff;
+}
+
+.splash-screen__title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.12;
+}
+
+.splash-screen__divider {
+  width: 56px;
+  height: 3px;
+  margin: 22px 0 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.splash-screen__subtitle {
+  max-width: 320px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.splash-screen__indicator {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: calc(32px + var(--ion-safe-area-bottom, 0px));
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.splash-screen__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.splash-screen__dot--active {
+  width: 22px;
+  background: #ffffff;
+}
+
+@media (max-width: 380px) {
+  .splash-screen__icon-wrap {
+    width: 88px;
+    height: 88px;
+    border-radius: 26px;
+  }
+
+  .splash-screen__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .splash-screen__title {
+    font-size: 36px;
+  }
+}
