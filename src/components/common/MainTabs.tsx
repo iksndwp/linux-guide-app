@@ -2,15 +2,15 @@ import { Redirect, Route } from "react-router-dom";
 import { IonRouterOutlet, IonTabs } from "@ionic/react";
 
 import FloatingNavbar from "./FloatingNavbar";
-import Library from "../pages/Library";
-import Tab1 from "../pages/Tab1";
+import Home from "../../features/home/Home";
+import Library from "../../features/library/Library";
 
 const MainTabs: React.FC = () => {
   return (
     <IonTabs>
       <IonRouterOutlet>
         <Route exact path="/app/home">
-          <Tab1 />
+          <Home />
         </Route>
 
         <Route exact path="/app/library">

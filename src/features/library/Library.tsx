@@ -11,6 +11,8 @@ import {
   IonToolbar,
 } from "@ionic/react";
 
+import "./Library.css";
+
 const Library: React.FC = () => {
   return (
     <IonPage>
