@@ -4,6 +4,7 @@ import { IonReactRouter } from "@ionic/react-router";
 
 import MainTabs from "./components/MainTabs";
 import Onboarding from "./pages/Onboarding";
+import Recommendation from "./pages/Recommendation";
 import Splash from "./pages/Splash";
 
 import "@ionic/react/css/core.css";
@@ -32,6 +33,10 @@ const App: React.FC = () => (
 
         <Route exact path="/onboarding">
           <Onboarding />
+        </Route>
+
+        <Route exact path="/recommendation">
+          <Recommendation />
         </Route>
 
         <Route exact path="/">
