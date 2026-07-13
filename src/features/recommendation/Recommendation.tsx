@@ -1,7 +1,7 @@
 import { IonButton, IonContent, IonPage } from "@ionic/react";
 import { useHistory } from "react-router-dom";
 
-import RecommendationCard from "../components/recommendation/RecommendationCard";
+import RecommendationCard from "./components/RecommendationCard";
 
 import "./Recommendation.css";
 

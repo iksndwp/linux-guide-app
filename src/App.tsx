@@ -2,10 +2,10 @@ import { Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
-import MainTabs from "./components/MainTabs";
-import Onboarding from "./pages/Onboarding";
-import Recommendation from "./pages/Recommendation";
-import Splash from "./pages/Splash";
+import MainTabs from "./components/common/MainTabs";
+import Onboarding from "./features/onboarding/Onboarding";
+import Recommendation from "./features/recommendation/Recommendation";
+import Splash from "./features/splash/Splash";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";

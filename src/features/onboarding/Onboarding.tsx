@@ -3,11 +3,11 @@ import { useHistory } from "react-router-dom";
 import { IonButton, IonContent, IonIcon, IonPage } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
 
-import BottomButton from "../components/onboarding/BottomButton";
-import ChoiceChip from "../components/onboarding/ChoiceChip";
-import OptionCard from "../components/onboarding/OptionCard";
-import ProgressBar from "../components/onboarding/ProgressBar";
-import QuestionHeader from "../components/onboarding/QuestionHeader";
+import BottomButton from "./components/BottomButton";
+import ChoiceChip from "./components/ChoiceChip";
+import OptionCard from "./components/OptionCard";
+import ProgressBar from "./components/ProgressBar";
+import QuestionHeader from "./components/QuestionHeader";
 
 import "./Onboarding.css";
 
