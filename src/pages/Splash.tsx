@@ -1,9 +1,25 @@
 import { IonContent, IonIcon, IonPage } from "@ionic/react";
 import { terminalOutline } from "ionicons/icons";
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import "./Splash.css";
 
+const SPLASH_NAVIGATION_DELAY_MS = 1200;
+
 const Splash: React.FC = () => {
+  const history = useHistory();
+
+  useEffect(() => {
+    const navigationTimer = window.setTimeout(() => {
+      history.replace("/onboarding");
+    }, SPLASH_NAVIGATION_DELAY_MS);
+
+    return () => {
+      window.clearTimeout(navigationTimer);
+    };
+  }, [history]);
+
   return (
     <IonPage>
       <IonContent fullscreen className="splash-screen">

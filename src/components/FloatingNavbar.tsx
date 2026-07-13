@@ -13,12 +13,12 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     label: "Beranda",
-    path: "/home",
+    path: "/app/home",
     icon: homeOutline,
   },
   {
     label: "Library",
-    path: "/library",
+    path: "/app/library",
     icon: bookOutline,
   },
 ];

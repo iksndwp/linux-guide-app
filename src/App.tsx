@@ -1,10 +1,10 @@
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
-import Tab1 from "./pages/Tab1";
-import Library from "./pages/Library";
-import FloatingNavbar from "./components/FloatingNavbar";
+import MainTabs from "./components/MainTabs";
+import Onboarding from "./pages/Onboarding";
+import Splash from "./pages/Splash";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
@@ -26,20 +26,18 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/home">
-          <Tab1 />
+        <Route path="/app">
+          <MainTabs />
         </Route>
 
-        <Route exact path="/library">
-          <Library />
+        <Route exact path="/onboarding">
+          <Onboarding />
         </Route>
 
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Splash />
         </Route>
       </IonRouterOutlet>
-
-      <FloatingNavbar />
     </IonReactRouter>
   </IonApp>
 );
