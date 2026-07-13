@@ -1,0 +1,217 @@
+.recommendation-screen {
+  --background: #fbfaff;
+  color: #1d1933;
+}
+
+.recommendation-screen::part(scroll) {
+  min-height: 100%;
+}
+
+.recommendation-screen__content {
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+  max-width: 640px;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: calc(34px + var(--ion-safe-area-top, 0px)) 22px
+    calc(20px + var(--ion-safe-area-bottom, 0px));
+}
+
+.recommendation-screen__hero {
+  padding-bottom: 26px;
+}
+
+.recommendation-screen__eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0 0 14px;
+  border-radius: 999px;
+  background: #eee9ff;
+  color: #5b44df;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  padding: 9px 12px;
+}
+
+.recommendation-screen__hero h1 {
+  margin: 0;
+  color: #18142c;
+  font-size: 34px;
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.recommendation-screen__hero > p:last-child {
+  margin: 14px 0 0;
+  color: #776f91;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.recommendation-screen__cards {
+  display: grid;
+  flex: 1;
+  align-content: start;
+  gap: 16px;
+  padding-bottom: 24px;
+}
+
+.recommendation-card {
+  border: 1px solid #ebe6f5;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(48, 36, 97, 0.07);
+  padding: 18px;
+}
+
+.recommendation-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.recommendation-card__logo {
+  display: grid;
+  width: 54px;
+  min-width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0)),
+    var(--distro-accent);
+  box-shadow: 0 14px 28px color-mix(in srgb, var(--distro-accent) 28%, transparent);
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.recommendation-card__title {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.recommendation-card__title h2 {
+  margin: 0;
+  color: #211c35;
+  font-size: 20px;
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 1.15;
+}
+
+.recommendation-card__badge {
+  display: inline-flex;
+  max-width: 100%;
+  border-radius: 999px;
+  background: #f1edff;
+  color: #5d45de;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.1;
+  padding: 7px 10px;
+}
+
+.recommendation-card__description {
+  margin: 16px 0 0;
+  color: #5c556f;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.recommendation-card__match {
+  margin-top: 16px;
+  border-radius: 16px;
+  background: #f8f5ff;
+  padding: 14px;
+}
+
+.recommendation-card__match span {
+  display: block;
+  color: #6b4dff;
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.recommendation-card__match p {
+  margin: 0;
+  color: #423b59;
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.45;
+}
+
+.recommendation-screen__actions {
+  display: grid;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.recommendation-screen__primary {
+  --background: #6b4dff;
+  --background-activated: #5a3eed;
+  --background-hover: #6345f4;
+  --border-radius: 18px;
+  --box-shadow: 0 18px 38px rgba(108, 78, 255, 0.28);
+  --color: #ffffff;
+  min-height: 56px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 850;
+  text-transform: none;
+}
+
+.recommendation-screen__secondary {
+  --background-hover: rgba(112, 86, 255, 0.08);
+  --background-focused: rgba(112, 86, 255, 0.12);
+  --border-radius: 18px;
+  --color: #5b44df;
+  min-height: 48px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: none;
+}
+
+@media (min-width: 760px) {
+  .recommendation-screen__content {
+    padding-top: calc(46px + var(--ion-safe-area-top, 0px));
+  }
+
+  .recommendation-screen__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .recommendation-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .recommendation-card__match {
+    margin-top: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .recommendation-screen__content {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .recommendation-screen__hero h1 {
+    font-size: 30px;
+  }
+}
