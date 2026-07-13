@@ -43,8 +43,6 @@ Linux is recommended.
 
 ```bash
 git clone https://github.com/iksndwp/linux-guide-app.git
-
-cd linux-guide
 ```
 
 ---
@@ -65,12 +63,6 @@ Example:
 
 ```
 ~/Android/Sdk
-```
-
-or
-
-```
-~/Develop/kit/android
 ```
 
 Set environment variables.
@@ -97,14 +89,6 @@ java -version
 javac -version
 
 adb devices
-```
-
-Expected:
-
-```
-Java 21
-
-Android device detected
 ```
 
 ---
@@ -161,49 +145,6 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew assembleDebug
 
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
-
----
-
-# Project Structure
-
-```
-linux-guide/
-
-├── android/
-├── public/
-├── src/
-│
-├── assets/
-├── components/
-├── data/
-├── hooks/
-├── pages/
-├── services/
-├── types/
-├── utils/
-│
-├── capacitor.config.ts
-├── package.json
-└── README.md
-```
-
----
-
-# Git Workflow
-
-This repository uses two branches.
-
-## main
-
-Stable version.
-
-Only tested features are merged here.
-
-## dev
-
-Development branch.
-
-All ongoing work is done here before merging into main.
 
 ---
 
