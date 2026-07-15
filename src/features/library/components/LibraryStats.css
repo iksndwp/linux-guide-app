@@ -1,0 +1,30 @@
+.library-stats-grid {
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  margin: 0;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+}
+
+.stat-card ion-card-content {
+  padding: 16px 8px;
+}
+
+.stat-card h2 {
+  margin: 0 0 6px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--ion-color-medium);
+  font-weight: 600;
+  line-height: 1.2;
+}

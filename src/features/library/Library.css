@@ -1,1 +1,15 @@
+.library-content {
+  --background: #f8f9fa;
+}
 
+.library-header {
+  margin-bottom: 24px;
+}
+
+.library-subtitle {
+  color: var(--ion-color-medium);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 500;
+}
