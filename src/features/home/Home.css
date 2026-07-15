@@ -26,13 +26,14 @@
    floating navbar never covers the last section.
 */
 .home-scroll {
-  padding-top: calc(env(safe-area-inset-top) + 24px);
+  /* Prevent overlap with status bar, but don't add excessive padding if safe area is large */
+  padding-top: calc(var(--ion-safe-area-top, env(safe-area-inset-top)) + 16px);
   padding-right: 20px;
   padding-bottom: 0;
   padding-left: 20px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
 }
 
 /* ================================================================
@@ -252,11 +253,11 @@
     0 2px 8px rgba(109, 67, 255, 0.08);
 }
 
-/* Logo — 38 px rounded square, smaller than before */
+/* Logo */
 .recommendation-card__logo {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -277,7 +278,7 @@
   font-size: 0.90rem;
   font-weight: 700;
   color: #1a1033;
-  margin: 0 0 2px;
+  margin: 0 0 1px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -304,7 +305,7 @@
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: capitalize;
-  padding: 3px 8px;
+  padding: 2px 6px;
   border-radius: 999px;
   white-space: nowrap;
 }
@@ -475,7 +476,7 @@
   .home-scroll {
     padding-right: 16px;
     padding-left: 16px;
-    gap: 20px;
+    gap: 24px;
   }
 
   .home-greeting__title {
@@ -496,9 +497,9 @@
   }
 
   .recommendation-card__logo {
-    width: 34px;
-    height: 34px;
-    border-radius: 9px;
-    font-size: 0.70rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    font-size: 0.65rem;
   }
 }
