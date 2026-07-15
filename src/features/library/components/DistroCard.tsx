@@ -1,6 +1,6 @@
 import React from 'react';
-import { IonItem, IonLabel, IonBadge, IonIcon } from '@ionic/react';
-import { chevronForwardOutline, logoTux } from 'ionicons/icons';
+import { IonIcon } from '@ionic/react';
+import { chevronForwardOutline } from 'ionicons/icons';
 import { Distro } from '../data/mockData';
 import './DistroCard.css';
 
@@ -8,30 +8,32 @@ interface DistroCardProps {
   distro: Distro;
 }
 
-const getDifficultyColor = (difficulty: string) => {
+const getDifficultyClass = (difficulty: string) => {
   switch (difficulty) {
-    case 'Beginner': return 'success';
-    case 'Intermediate': return 'warning';
-    case 'Advanced': return 'danger';
-    default: return 'medium';
+    case 'Beginner': return 'difficulty-badge--beginner';
+    case 'Intermediate': return 'difficulty-badge--intermediate';
+    case 'Advanced': return 'difficulty-badge--advanced';
+    default: return '';
   }
 };
 
 const DistroCard: React.FC<DistroCardProps> = ({ distro }) => {
   return (
-    <IonItem button detail={false} className="distro-card-item" lines="none">
-      <div className="distro-logo">
-        <IonIcon icon={logoTux} />
+    <div className="distro-card">
+      <div className="distro-card__logo">
+        Tux
       </div>
-      <IonLabel className="distro-info">
-        <h3>{distro.name}</h3>
-        <p>Package Manager: {distro.packageManager}</p>
-      </IonLabel>
-      <div className="distro-meta">
-        <IonBadge color={getDifficultyColor(distro.difficulty)}>{distro.difficulty}</IonBadge>
-        <IonIcon icon={chevronForwardOutline} color="medium" />
+      <div className="distro-card__info">
+        <h3 className="distro-card__name">{distro.name}</h3>
+        <p className="distro-card__pm">Package: {distro.packageManager}</p>
       </div>
-    </IonItem>
+      <div className="distro-card__right">
+        <span className={`difficulty-badge ${getDifficultyClass(distro.difficulty)}`}>
+          {distro.difficulty}
+        </span>
+        <IonIcon icon={chevronForwardOutline} className="distro-card__chevron" />
+      </div>
+    </div>
   );
 };
 

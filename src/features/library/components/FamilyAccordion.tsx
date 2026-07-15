@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonAccordionGroup, IonAccordion, IonItem, IonLabel, IonList } from '@ionic/react';
+import { IonAccordionGroup, IonAccordion, IonItem, IonLabel } from '@ionic/react';
 import DistroCard from './DistroCard';
 import { Family } from '../data/mockData';
 import './FamilyAccordion.css';
@@ -13,15 +13,15 @@ const FamilyAccordion: React.FC<FamilyAccordionProps> = ({ families }) => {
     <IonAccordionGroup value={['debian']} multiple={true} className="family-accordion-group">
       {families.map((family) => (
         <IonAccordion value={family.id} key={family.id} className="family-accordion">
-          <IonItem slot="header" color="light" lines="none" className="family-header">
+          <IonItem slot="header" lines="none" className="family-header">
             <IonLabel className="family-title">{family.name}</IonLabel>
           </IonItem>
-          <div className="ion-padding-bottom" slot="content">
-            <IonList className="distro-list" lines="none">
+          <div slot="content" className="family-content">
+            <div className="distro-list">
               {family.distros.map(distro => (
                 <DistroCard key={distro.id} distro={distro} />
               ))}
-            </IonList>
+            </div>
           </div>
         </IonAccordion>
       ))}

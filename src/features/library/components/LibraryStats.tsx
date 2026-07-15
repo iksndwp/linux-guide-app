@@ -1,5 +1,4 @@
 import React from 'react';
-import { IonGrid, IonRow, IonCol, IonCard, IonCardContent, IonText } from '@ionic/react';
 import './LibraryStats.css';
 
 interface LibraryStatsProps {
@@ -12,40 +11,20 @@ interface LibraryStatsProps {
 
 const LibraryStats: React.FC<LibraryStatsProps> = ({ stats }) => {
   return (
-    <IonGrid className="library-stats-grid">
-      <IonRow>
-        <IonCol size="4">
-          <IonCard className="stat-card">
-            <IonCardContent>
-              <IonText color="primary">
-                <h2>{stats.distros}</h2>
-              </IonText>
-              <p>Distros</p>
-            </IonCardContent>
-          </IonCard>
-        </IonCol>
-        <IonCol size="4">
-          <IonCard className="stat-card">
-            <IonCardContent>
-              <IonText color="secondary">
-                <h2>{stats.families}</h2>
-              </IonText>
-              <p>Families</p>
-            </IonCardContent>
-          </IonCard>
-        </IonCol>
-        <IonCol size="4">
-          <IonCard className="stat-card">
-            <IonCardContent>
-              <IonText color="tertiary">
-                <h2>{stats.beginnerFriendly}</h2>
-              </IonText>
-              <p>Beginner</p>
-            </IonCardContent>
-          </IonCard>
-        </IonCol>
-      </IonRow>
-    </IonGrid>
+    <div className="library-stats-grid">
+      <div className="stat-card">
+        <p className="stat-card__label">Distros</p>
+        <p className="stat-card__value">{stats.distros}</p>
+      </div>
+      <div className="stat-card">
+        <p className="stat-card__label">Families</p>
+        <p className="stat-card__value">{stats.families}</p>
+      </div>
+      <div className="stat-card">
+        <p className="stat-card__label">Beginner</p>
+        <p className="stat-card__value">{stats.beginnerFriendly}</p>
+      </div>
+    </div>
   );
 };
 

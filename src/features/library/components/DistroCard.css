@@ -1,55 +1,93 @@
-.distro-card-item {
-  --padding-start: 16px;
-  --padding-end: 16px;
-  --inner-padding-end: 0;
-  --background: var(--ion-color-light, #f4f5f8);
-  margin-bottom: 12px;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-.distro-card-item::part(native) {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
-.distro-logo {
-  width: 48px;
-  height: 48px;
+.distro-card {
+  background: #ffffff;
+  border: 1px solid rgba(109, 67, 255, 0.08);
   border-radius: 12px;
-  background-color: var(--ion-color-step-100, #e0e0e0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 16px;
-}
-
-.distro-logo ion-icon {
-  font-size: 28px;
-  color: var(--ion-color-medium);
-}
-
-.distro-info h3 {
-  font-weight: 700;
-  font-size: 1.05rem;
-  margin-bottom: 6px;
-}
-
-.distro-info p {
-  font-size: 0.8rem;
-  color: var(--ion-color-medium);
-  margin: 0;
-}
-
-.distro-meta {
+  padding: 12px 14px;
   display: flex;
   align-items: center;
   gap: 12px;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 120ms ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.distro-meta ion-badge {
-  font-weight: 600;
+.distro-card:active {
+  background-color: #f6f4ff;
+  transform: scale(0.99);
+}
+
+.distro-card__logo {
+  width: 34px;
+  height: 34px;
   border-radius: 8px;
-  padding: 6px 10px;
-  font-size: 0.7rem;
+  background: #6d43ff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+}
+
+.distro-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.distro-card__name {
+  font-size: 0.90rem;
+  font-weight: 700;
+  color: #1a1033;
+  margin: 0 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.distro-card__pm {
+  font-size: 0.71rem;
+  color: #b0a8c8;
+  margin: 0;
+}
+
+.distro-card__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.difficulty-badge {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: capitalize;
+  padding: 2px 6px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.difficulty-badge--beginner {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.difficulty-badge--intermediate {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.difficulty-badge--advanced {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.distro-card__chevron {
+  color: #b0a8c8;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }

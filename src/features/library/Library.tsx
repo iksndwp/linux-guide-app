@@ -1,10 +1,7 @@
 import React from 'react';
 import {
   IonContent,
-  IonHeader,
   IonPage,
-  IonTitle,
-  IonToolbar,
 } from "@ionic/react";
 
 import LibraryStats from "./components/LibraryStats";
@@ -14,23 +11,28 @@ import "./Library.css";
 
 const Library: React.FC = () => {
   return (
-    <IonPage>
-      <IonHeader className="ion-no-border">
-        <IonToolbar>
-          <IonTitle>Distro Library</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+    <IonPage className="library-page">
+      <IonContent className="library-content">
+        <div className="library-scroll">
+          
+          <header className="library-header">
+            <h1 className="library-greeting__title">Distro Library</h1>
+            <p className="library-greeting__eyebrow">
+              Jelajahi keluarga distro Linux
+            </p>
+          </header>
 
-      <IonContent className="ion-padding library-content">
-        <div className="library-header">
-          <p className="library-subtitle">
-            Jelajahi keluarga distro Linux dan pilih distro yang ingin kamu
-            pelajari.
-          </p>
+          <section className="library-section">
+            <h2 className="library-section__title">Statistics</h2>
+            <LibraryStats stats={libraryStats} />
+          </section>
+
+          <section className="library-section">
+            <h2 className="library-section__title">Families</h2>
+            <FamilyAccordion families={mockFamilies} />
+          </section>
+
         </div>
-
-        <LibraryStats stats={libraryStats} />
-        <FamilyAccordion families={mockFamilies} />
       </IonContent>
     </IonPage>
   );
