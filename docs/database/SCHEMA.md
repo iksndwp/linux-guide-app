@@ -3,27 +3,27 @@
 This document defines the layout, keys, and indexes for the database without relying on specific SQL syntax. It serves as the blueprint for implementation.
 
 ## 1. Families Table
-- **Layout**: Stores family ID, name, description, and an optional logo path.
+- **Layout**: Stores family ID, name, description, and local `logo_asset` path.
 - **Primary Key**: `id`
 - **Foreign Keys**: None.
 - **Unique Constraints**: `name` must be unique to prevent duplicates.
-- **Indexes**: None strictly required for a small dataset, but `name` could be indexed.
+- **Indexes**: None (covered by UNIQUE on name).
 
 ## 2. Distros Table
-- **Layout**: Stores distro ID, link to family, name, version details, and difficulty rating.
+- **Layout**: Stores distro ID, link to family, slug, name, package manager, logo asset, official website, and difficulty rating.
 - **Primary Key**: `id`
 - **Foreign Keys**: `family_id` references `Families.id` (ON DELETE CASCADE).
-- **Unique Constraints**: None (can have multiple versions of same distro name).
+- **Unique Constraints**: `slug` must be unique for precise URL routing and lookup.
 - **Indexes**: 
   - Index on `family_id` for fast filtering by family.
   - Index on `difficulty` for fast filtering by user skill level.
 
 ## 3. SystemRequirements Table
-- **Layout**: Stores minimum and recommended RAM/Disk, and architecture.
+- **Layout**: Stores minimum and recommended RAM/Disk, and processor requirements.
 - **Primary Key**: `id`
 - **Foreign Keys**: `distro_id` references `Distros.id` (ON DELETE CASCADE).
 - **Unique Constraints**: `distro_id` must be unique (One-to-One relationship).
-- **Indexes**: Index on `distro_id` (usually covered by the unique constraint automatically).
+- **Indexes**: Index on `distro_id` (covered by the unique constraint).
 
 ## 4. ProsCons Table
 - **Layout**: Stores short text points categorized as 'pro' or 'con' for a distro.
@@ -33,47 +33,46 @@ This document defines the layout, keys, and indexes for the database without rel
 - **Indexes**: Index on `distro_id`.
 
 ## 5. InstallationGuides Table
-- **Layout**: Title and estimated time for a specific distro installation.
+- **Layout**: Title, description, and estimated time for a specific distro installation.
 - **Primary Key**: `id`
 - **Foreign Keys**: `distro_id` references `Distros.id` (ON DELETE CASCADE).
 - **Unique Constraints**: None.
 - **Indexes**: Index on `distro_id`.
 
 ## 6. GuideSteps Table
-- **Layout**: Step number, instruction text, and image.
+- **Layout**: Step number, title, detailed instruction text, and image.
 - **Primary Key**: `id`
 - **Foreign Keys**: `guide_id` references `InstallationGuides.id` (ON DELETE CASCADE).
 - **Unique Constraints**: Composite unique constraint on `(guide_id, step_number)` to prevent duplicate step numbers for a single guide.
 - **Indexes**: Index on `guide_id`.
 
 ## 7. Commands Table
-- **Layout**: Command string, description, syntax, category.
+- **Layout**: Distro link, command string, description, syntax, category.
 - **Primary Key**: `id`
-- **Foreign Keys**: None.
-- **Unique Constraints**: `command` must be unique.
+- **Foreign Keys**: `distro_id` references `Distros.id` (ON DELETE CASCADE).
+- **Unique Constraints**: None (different distros can share identical command names).
 - **Indexes**: 
+  - Index on `distro_id`.
   - Index on `category`.
-  - Full-text search index (e.g., SQLite FTS5 extension) is highly recommended for `command` and `description` to enable rapid searching.
 
 ## 8. DailyTips Table
-- **Layout**: Tip text and an optional index for cyclical display.
+- **Layout**: Tip content text.
 - **Primary Key**: `id`
 - **Foreign Keys**: None.
-- **Unique Constraints**: `day_index` to map unique days of the year/cycle.
-- **Indexes**: Index on `day_index`.
+- **Unique Constraints**: None.
+- **Indexes**: None (chosen randomly at runtime).
 
 ## 9. UserPreferences Table
-- **Layout**: Global boolean flags (dark mode, onboarding complete).
+- **Layout**: Global boolean flags (dark mode, onboarding complete) and onboarding engine variables (experience, terminal_skill, purpose, priority).
 - **Primary Key**: `id`
 - **Foreign Keys**: None.
 - **Unique Constraints**: `id` is restricted to always equal `1` to enforce a single-row configuration table.
 - **Indexes**: None.
 
 ## 10. LearningProgress Table
-- **Layout**: Tracks completion status of various entities.
+- **Layout**: Tracks completion status and current step specifically for guides.
 - **Primary Key**: `id`
-- **Foreign Keys**: None (uses soft links via `entity_type` and `entity_id` to prevent cascade deletes from wiping user progress if content is updated/removed).
-- **Unique Constraints**: Composite unique constraint on `(entity_type, entity_id)` to ensure an item is only tracked once per user context.
+- **Foreign Keys**: None strictly required, though conceptually links to `InstallationGuides`.
+- **Unique Constraints**: `guide_id` is unique to ensure 1:1 progress tracking.
 - **Indexes**: 
-  - Index on `(entity_type, entity_id)`.
   - Index on `completed` to quickly find unfinished tasks.
