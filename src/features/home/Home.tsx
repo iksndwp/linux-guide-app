@@ -49,7 +49,7 @@ const Home: React.FC = () => {
 
   return (
     <IonPage className="home-page">
-      <IonContent className="home-content">
+      <IonContent className="home-content" fullscreen>
         <div className="home-scroll">
 
           {/* ── 1. Header: Greeting + Settings ───────────────────── */}
