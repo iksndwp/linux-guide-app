@@ -1,1 +1,54 @@
+.library-page {
+  --background: #F6F4FF;
+}
 
+.library-content {
+  --background: #F6F4FF;
+  --color: #1a1033;
+}
+
+.library-scroll {
+  padding-top: calc(var(--ion-safe-area-top, env(safe-area-inset-top)) + 16px);
+  padding-right: 20px;
+  padding-bottom: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.library-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.library-greeting__eyebrow {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #6d43ff;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.library-greeting__title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #1a1033;
+  line-height: 1.15;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+}
+
+.library-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.library-section__title {
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #b0a8c8;
+  margin: 0 0 12px;
+}

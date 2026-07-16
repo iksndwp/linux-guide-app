@@ -1,0 +1,43 @@
+.family-accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.family-accordion {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.05),
+    0 4px 16px rgba(109, 67, 255, 0.06);
+}
+
+.family-header {
+  --background: transparent;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 56px;
+}
+
+.family-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a1033;
+}
+
+.family-content {
+  background: #ffffff;
+}
+
+.distro-list {
+  padding: 0 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Ensure the background stays white during toggle */
+ion-accordion.accordion-expanded ion-item[slot="header"] {
+  --background: transparent;
+}

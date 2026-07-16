@@ -1,89 +1,38 @@
+import React from 'react';
 import {
-  IonAccordion,
-  IonAccordionGroup,
   IonContent,
-  IonHeader,
-  IonItem,
-  IonLabel,
-  IonList,
   IonPage,
-  IonTitle,
-  IonToolbar,
 } from "@ionic/react";
 
+import LibraryStats from "./components/LibraryStats";
+import FamilyAccordion from "./components/FamilyAccordion";
+import { mockFamilies, libraryStats } from "./data/mockData";
 import "./Library.css";
 
 const Library: React.FC = () => {
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Library</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+    <IonPage className="library-page">
+      <IonContent className="library-content">
+        <div className="library-scroll">
+          
+          <header className="library-header">
+            <h1 className="library-greeting__title">Distro Library</h1>
+            <p className="library-greeting__eyebrow">
+              Jelajahi keluarga distro Linux
+            </p>
+          </header>
 
-      <IonContent className="ion-padding">
-        <h1>Linux Distro Library</h1>
-        <p>
-          Jelajahi keluarga distro Linux dan pilih distro yang ingin kamu
-          pelajari.
-        </p>
+          <section className="library-section">
+            <h2 className="library-section__title">Statistics</h2>
+            <LibraryStats stats={libraryStats} />
+          </section>
 
-        <IonAccordionGroup>
-          <IonAccordion value="debian">
-            <IonItem slot="header">
-              <IonLabel>Debian-based</IonLabel>
-            </IonItem>
+          <section className="library-section">
+            <h2 className="library-section__title">Families</h2>
+            <FamilyAccordion families={mockFamilies} />
+          </section>
 
-            <IonList slot="content">
-              <IonItem button>
-                <IonLabel>Debian</IonLabel>
-              </IonItem>
-              <IonItem button>
-                <IonLabel>Ubuntu</IonLabel>
-              </IonItem>
-              <IonItem button>
-                <IonLabel>Linux Mint</IonLabel>
-              </IonItem>
-            </IonList>
-          </IonAccordion>
-
-          <IonAccordion value="redhat">
-            <IonItem slot="header">
-              <IonLabel>Red Hat-based</IonLabel>
-            </IonItem>
-
-            <IonList slot="content">
-              <IonItem button>
-                <IonLabel>Fedora</IonLabel>
-              </IonItem>
-              <IonItem button>
-                <IonLabel>Rocky Linux</IonLabel>
-              </IonItem>
-              <IonItem button>
-                <IonLabel>AlmaLinux</IonLabel>
-              </IonItem>
-            </IonList>
-          </IonAccordion>
-
-          <IonAccordion value="arch">
-            <IonItem slot="header">
-              <IonLabel>Arch-based</IonLabel>
-            </IonItem>
-
-            <IonList slot="content">
-              <IonItem button>
-                <IonLabel>Arch Linux</IonLabel>
-              </IonItem>
-              <IonItem button>
-                <IonLabel>EndeavourOS</IonLabel>
-              </IonItem>
-              <IonItem button>
-                <IonLabel>Manjaro</IonLabel>
-              </IonItem>
-            </IonList>
-          </IonAccordion>
-        </IonAccordionGroup>
+        </div>
       </IonContent>
     </IonPage>
   );
