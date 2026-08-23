@@ -75,6 +75,6 @@ npm run android
 
 ---
 
-## Project Status: Current development
+## Project Status: on development
 
 ```
